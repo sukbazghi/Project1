@@ -1,0 +1,32 @@
+/*-- Exploritory Data---*/
+SELECT * FROM SALES_DATA LIMIT 10
+
+
+/*---- Analyzing DATA SETS FOR TRENDS---*/
+SELECT MONTH, AVG(Sales)
+FROM SALES_DATA
+
+/*---SELECT Month,AVG(Sales)---*/
+FROM SALES_DATA
+WHERE Month BETWEEN 4 and 6
+
+/*---------- STEP 3: CREATE NEW Sales Quarter VARIABLE ----------*/
+
+/* Sales_Quarter: 1 = 18-29, 2 = 30-64, 3 = 65+ */
+
+ALTER TABLE SALES_DATA
+	ADD COLUMN Sales_Quarter Varchar(30);
+  
+  UPDATE SALES_DATA 
+SET Sales_Quarter = CASE
+WHEN Month BETWEEN 1 AND 3 THEN 1
+WHEN Month BETWEEN 4 AND 6 THEN 2
+WHEN Month BETWEEN 7 AND 9 THEN 3
+WHEN Month BETWEEN 10 AND 12 THEN 4
+END;
+
+/*------ANALYSIS-----------*
+SELECT Sales_Quarter,AVG(Sales)
+FROM SALES_DATA
+ORDER BY Sales_Quarter;
+
