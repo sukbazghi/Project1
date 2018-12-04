@@ -3,11 +3,13 @@ SELECT * FROM SALES_DATA LIMIT 10
 
 
 /*---- Analyzing DATA SETS FOR TRENDS---*/
-SELECT MONTH, AVG(Sales)
+SELECT Month, AVG(Sales)
 FROM SALES_DATA
+Order BY Month
 
-/*---SELECT Month,AVG(Sales)---*/
-FROM SALES_DATA
+
+SELECT Month,AVG(Sales)
+FROM SALES_DATA, 
 WHERE Month BETWEEN 4 and 6
 
 /*---------- STEP 3: CREATE NEW Sales Quarter VARIABLE ----------*/
@@ -26,7 +28,8 @@ WHEN Month BETWEEN 10 AND 12 THEN 4
 END;
 
 /*------ANALYSIS-----------*
-SELECT Sales_Quarter,AVG(Sales)
+SELECT Sales_Quarter, AVG( Sales ) 
 FROM SALES_DATA
-ORDER BY Sales_Quarter;
+GROUP BY Sales_Quarter
+ORDER BY Sales_Quarter DESC;
 
