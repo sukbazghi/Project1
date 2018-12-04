@@ -28,8 +28,8 @@ WHEN Month BETWEEN 10 AND 12 THEN 4
 END;
 
 /*------ANALYSIS-----------*
-SELECT Sales_Quarter, AVG( Sales ) 
+SELECT Sales_Quarter, AVG( Sales ) AS AVG_Sales
 FROM SALES_DATA
 GROUP BY Sales_Quarter
-ORDER BY Sales_Quarter DESC;
+ORDER BY AVG_Sales DESC ;
 
