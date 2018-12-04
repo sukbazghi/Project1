@@ -14,7 +14,7 @@ WHERE Month BETWEEN 4 and 6
 
 /*---------- STEP 3: CREATE NEW Sales Quarter VARIABLE ----------*/
 
-/* Sales_Quarter: 1 = 18-29, 2 = 30-64, 3 = 65+ */
+/* Sales_Quarter: 1 = 1-3, 2 = 4-6, 3 = 7-9, 4 = 10-12 */
 
 ALTER TABLE SALES_DATA
 	ADD COLUMN Sales_Quarter Varchar(30);
