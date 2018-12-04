@@ -11,6 +11,7 @@ Order BY Month
 SELECT Month,AVG(Sales)
 FROM SALES_DATA, 
 WHERE Month BETWEEN 4 and 6
+GROUP BY Month
 
 /*---------- STEP 3: CREATE NEW Sales Quarter VARIABLE ----------*/
 
@@ -32,4 +33,3 @@ SELECT Sales_Quarter, AVG( Sales ) AS AVG_Sales
 FROM SALES_DATA
 GROUP BY Sales_Quarter
 ORDER BY AVG_Sales DESC ;
-
