@@ -1,0 +1,15 @@
+-- /JOIN + ALIAS 
+
+SELECT c1.name AS city, c2.name AS country
+FROM cities AS c1
+INNER JOIN countries AS c2
+ON c1.country_code = c2.code;
+
+/////
+
+SELECT c.name, e.year, e.inflation_rate
+FROM countries as c
+JOIN economies as e
+ON c.code = e.code
+WHERE year BETWEEN 2010 and 2015 
+AND inflation_rate < 0
