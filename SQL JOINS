@@ -5,7 +5,7 @@ FROM cities AS c1
 INNER JOIN countries AS c2
 ON c1.country_code = c2.code;
 
-/////
+--/////
 
 SELECT c.name, e.year, e.inflation_rate
 FROM countries as c
@@ -13,3 +13,25 @@ JOIN economies as e
 ON c.code = e.code
 WHERE year BETWEEN 2010 and 2015 
 AND inflation_rate < 0
+
+--//// JOIN + ALIAs + CASE
+
+SELECT country_code, size,
+  CASE WHEN size > 50000000
+            THEN 'large'
+       WHEN size > 1000000
+            THEN 'medium'
+       ELSE 'small' END
+       AS popsize_group
+INTO pop_plus       
+FROM populations
+WHERE year = 2015;
+
+SELECT name, continent, geosize_group, popsize_group
+
+ From countries_plus  as c
+Join pop_plus  as p
+ 
+    ON c.code = p.country_code
+  
+ Order BY geosize_group ASC;
